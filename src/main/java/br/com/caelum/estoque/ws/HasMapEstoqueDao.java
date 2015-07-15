@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.ejb.Stateless;
 
 @Stateless
-class HasMapEstoqueDao implements Estoque {
+public class HasMapEstoqueDao implements Estoque {
 
 	private Map<String, ItemEstoque> repositorio = new HashMap<>();
 	

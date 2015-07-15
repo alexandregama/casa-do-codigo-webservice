@@ -1,9 +1,14 @@
 package br.com.caelum.estoque.ws;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class HasMapEstoqueDao implements Estoque {
+import javax.ejb.Stateless;
+
+@Stateless
+class HasMapEstoqueDao implements Estoque {
 
 	private Map<String, ItemEstoque> repositorio = new HashMap<>();
 	
@@ -19,6 +24,18 @@ public class HasMapEstoqueDao implements Estoque {
 	@Override
 	public ItemEstoque buscaPorCodigo(String codigo) {
 		return repositorio.get(codigo);
+	}
+
+	@Override
+	public List<ItemEstoque> buscaPorListaDeCodigo(List<String> codigos) {
+		List<ItemEstoque> itens = new ArrayList<>();
+		
+		for (String codigo : codigos) {
+			if (repositorio.containsKey(codigo)) {
+				itens.add(repositorio.get(codigo));
+			}
+		}
+		return itens;
 	}
 
 }

@@ -7,5 +7,5 @@ public interface Estoque {
 	ItemEstoque buscaPorCodigo(String codigo);
 	
 	List<ItemEstoque> buscaPorListaDeCodigo(List<String> codigos);
-	
+
 }

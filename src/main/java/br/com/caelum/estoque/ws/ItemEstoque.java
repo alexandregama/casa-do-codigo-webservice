@@ -29,5 +29,9 @@ public class ItemEstoque {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
+	public void removeUnidade() {
+		this.quantidade--;
+	}
 	
 }

@@ -24,7 +24,6 @@ public class Pagamento {
 	private ArrayList<Link> links = new ArrayList<>();
 
 	public void comStatusCriado() {
-
 		if (this.id == null) {
 			throw new IllegalArgumentException("id do pagamento deve existir");
 		}
@@ -36,7 +35,6 @@ public class Pagamento {
 	}
 
 	public void comStatusConfirmado() {
-
 		if (this.id == null) {
 			throw new IllegalArgumentException("id do pagamento deve existir");
 		}
@@ -51,7 +49,6 @@ public class Pagamento {
 	}
 
 	public void comStatusCancelado() {
-
 		if (this.id == null) {
 			throw new IllegalArgumentException("id do pagamento deve existir");
 		}
@@ -64,7 +61,15 @@ public class Pagamento {
 		this.links.clear();
 		this.addLink(new Link(REL_SELF, URI + this.getId(), "GET"));
 	}
-
+	
+	public Link getLinkPeloRel(String rel) {
+		for (Link link : this.links) {
+			if(link.getRel().equals(rel)) {
+				return link;
+			}
+		}
+		return null;
+	}
 	
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
@@ -86,7 +91,6 @@ public class Pagamento {
 		return id;
 	}
 
-
 	public ArrayList<Link> getLinks() {
 		return links;
 	}
@@ -95,15 +99,6 @@ public class Pagamento {
 		this.links.add(link);
 	}
 	
-	public Link getLinkPeloRel(String rel) {
-		for (Link link : this.links) {
-			if(link.getRel().equals(rel)) {
-				return link;
-			}
-		}
-		return null;
-	}
-
 	public boolean ehCriado() {
 		return STATUS_CRIADO.equals(this.status);
 	}

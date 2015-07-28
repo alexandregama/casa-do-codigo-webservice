@@ -2,7 +2,6 @@ package br.com.caelum.payfast;
 
 import java.math.BigDecimal;
 
-
 public class Transacao {
 
 	private String numero;

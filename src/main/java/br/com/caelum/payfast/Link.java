@@ -29,6 +29,4 @@ public class Link {
 		return "Link [rel=" + rel + ", uri=" + uri + ", method=" + method + "]";
 	}
 	
-	
-
 }

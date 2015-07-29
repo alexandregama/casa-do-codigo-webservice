@@ -1,5 +1,7 @@
 package br.com.caelum.payfast;
 
+import com.google.common.base.MoreObjects;
+
 public class Link {
 
 	private String rel;
@@ -26,7 +28,12 @@ public class Link {
 
 	@Override
 	public String toString() {
-		return "Link [rel=" + rel + ", uri=" + uri + ", method=" + method + "]";
+		return MoreObjects.toStringHelper(this)
+				.addValue("Link[")
+				.add("rel", rel)
+				.add("uri", uri)
+				.add("method", method)
+				.addValue("]").toString();
 	}
 	
 }

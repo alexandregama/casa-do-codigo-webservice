@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.google.common.base.MoreObjects;
+
 @XmlRootElement
 public class Pagamento {
 
@@ -122,7 +124,12 @@ public class Pagamento {
 
 	@Override
 	public String toString() {
-		return "Pagamento [id=" + id + ", status=" + status + ", valor=" + valor + ", links="
-				+ links + "]";
+		return MoreObjects.toStringHelper(this)
+				.add("id", id)
+				.add("status", status)
+				.add("valor", valor)
+				.add("links", links)
+				.toString();
 	}
+	
 }

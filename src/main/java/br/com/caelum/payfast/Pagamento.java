@@ -33,13 +33,10 @@ public class Pagamento {
 
 	public Pagamento(BigDecimal valor) {
 		this.valor = valor;
+		this.comStatusCriado();
 	}
 
 	public void comStatusCriado() {
-		if (this.id == null) {
-			throw new IllegalArgumentException("id do pagamento deve existir");
-		}
-
 		this.status = STATUS_CRIADO;
 		this.links.clear();
 		this.addLink(new Link(REL_CONFIRMAR, URI + this.getId(), HttpMethod.PUT));

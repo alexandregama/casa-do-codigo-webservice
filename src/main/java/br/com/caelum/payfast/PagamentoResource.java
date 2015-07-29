@@ -26,7 +26,7 @@ public class PagamentoResource {
 	
 	@GET
 	@Path("{id}")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	public Pagamento buscaPagamento(@PathParam("id") Integer id) {
 		return repositorio.get(id);
 	}

@@ -11,7 +11,7 @@ curl -i -H "Accept: application/json" http://localhost:8080/casa-do-codigo-webse
 curl -i -H "Accept: application/xml" http://localhost:8080/casa-do-codigo-webservice/pagamentos/1
 ```
 
-#### Criand um pagamento a partir de uma Transação
+##### Criand um pagamento a partir de uma Transação
 
 ```json
 curl -i -H "Content-Type: application/json" -X POST -d 

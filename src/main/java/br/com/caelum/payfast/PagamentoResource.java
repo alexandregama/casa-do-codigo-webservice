@@ -10,6 +10,7 @@ import javax.ejb.Singleton;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -47,6 +48,16 @@ public class PagamentoResource {
 				.entity(pagamento)
 				.type(MediaType.APPLICATION_JSON_TYPE)
 				.build();
+	}
+	
+	@PUT
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Pagamento confirmaPagamento(@PathParam("id") Integer id) throws URISyntaxException {
+		Pagamento pagamento = repositorio.get(id);
+		pagamento.comStatusConfirmado();
+		
+		return pagamento;
 	}
 	
 }

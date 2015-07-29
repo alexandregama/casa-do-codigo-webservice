@@ -2,6 +2,8 @@ package br.com.caelum.payfast;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -102,8 +104,8 @@ public class Pagamento {
 		return id;
 	}
 
-	public ArrayList<Link> getLinks() {
-		return links;
+	public List<Link> getLinks() {
+		return Collections.unmodifiableList(links);
 	}
 
 	public void addLink(Link link) {

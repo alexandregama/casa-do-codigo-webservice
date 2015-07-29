@@ -40,6 +40,7 @@ public class PagamentoResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response criaPagamento(Transacao transacao) throws URISyntaxException {
 		Pagamento pagamento = new Pagamento(id++, transacao.getValor());
+		pagamento.comStatusCriado();
 		repositorio.put(pagamento.getId(), pagamento);
 		
 		return Response.created(new URI("/pagamentos/" + pagamento.getId()))

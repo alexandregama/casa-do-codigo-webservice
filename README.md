@@ -11,7 +11,7 @@ curl -i -H "Accept: application/json" http://localhost:8080/casa-do-codigo-webse
 curl -i -H "Accept: application/xml" http://localhost:8080/casa-do-codigo-webservice/pagamentos/1
 ```
 
-##### Criand um pagamento a partir de uma Transação
+##### Criando um Pagamento a partir de uma Transação
 
 ```json
 curl -i -H "Content-Type: application/json" -X POST -d 
@@ -22,7 +22,7 @@ curl -i -H "Content-Type: application/json" -X POST -d
 http://localhost:8080/casa-do-codigo-webservice/pagamentos
 ```
 
-Formato da resposta da criação de um pagamento
+Formato da resposta da criação de um Pagamento
 
 ```json
 {
@@ -43,3 +43,16 @@ Formato da resposta da criação de um pagamento
    ]
 }
 ```
+
+##### Confirmando um Pagamento
+
+```json
+curl -i -H "Accept: application/json" -X PUT http://localhost:8080/casa-do-codigo-webservice/pagamentos/1
+```
+
+##### Deletando(cancelando) um Pagamento
+
+```json
+curl -i -H "Accept: application/json" -X DELETE http://localhost:8080/casa-do-codigo-webservice/pagamentos/1
+```
+Obs: Aqui foi usado DELETE por questão de exercício mas deveria ter sido usado PATCH ou PUT

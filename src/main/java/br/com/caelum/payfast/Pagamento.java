@@ -22,6 +22,15 @@ public class Pagamento {
 	private String status;
 	private BigDecimal valor;
 	private ArrayList<Link> links = new ArrayList<>();
+	
+	@Deprecated //JAX-B eyes only
+	Pagamento() {
+	}
+
+	public Pagamento(Integer id, BigDecimal valor) {
+		this.id = id;
+		this.valor = valor;
+	}
 
 	public void comStatusCriado() {
 		if (this.id == null) {

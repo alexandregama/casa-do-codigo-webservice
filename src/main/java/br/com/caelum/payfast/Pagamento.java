@@ -31,8 +31,7 @@ public class Pagamento {
 	Pagamento() {
 	}
 
-	public Pagamento(Integer id, BigDecimal valor) {
-		this.id = id;
+	public Pagamento(BigDecimal valor) {
 		this.valor = valor;
 	}
 

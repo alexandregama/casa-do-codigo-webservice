@@ -4,9 +4,9 @@ public class Link {
 
 	private String rel;
 	private String uri;
-	private String method;
+	private HttpMethod method;
 
-	public Link(String rel, String uri, String method) {
+	public Link(String rel, String uri, HttpMethod method) {
 		this.rel = rel;
 		this.uri = uri;
 		this.method = method;
@@ -21,7 +21,7 @@ public class Link {
 	}
 
 	public String getMethod() {
-		return method;
+		return method.toString();
 	}
 
 	@Override

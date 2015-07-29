@@ -39,8 +39,8 @@ public class Pagamento {
 
 		this.status = STATUS_CRIADO;
 		this.links.clear();
-		this.addLink(new Link(REL_CONFIRMAR, URI + this.getId(), "PUT"));
-		this.addLink(new Link(REL_CANCELAR, URI + this.getId(), "DELETE"));
+		this.addLink(new Link(REL_CONFIRMAR, URI + this.getId(), HttpMethod.PUT));
+		this.addLink(new Link(REL_CANCELAR, URI + this.getId(), HttpMethod.DELETE));
 	}
 
 	public void comStatusConfirmado() {
@@ -54,7 +54,7 @@ public class Pagamento {
 
 		this.status = STATUS_CONFIRMADO;
 		this.links.clear();
-		this.addLink(new Link(REL_SELF, URI + this.getId(), "GET"));
+		this.addLink(new Link(REL_SELF, URI + this.getId(), HttpMethod.GET));
 	}
 
 	public void comStatusCancelado() {
@@ -68,7 +68,7 @@ public class Pagamento {
 
 		this.status = STATUS_CANCELADO;
 		this.links.clear();
-		this.addLink(new Link(REL_SELF, URI + this.getId(), "GET"));
+		this.addLink(new Link(REL_SELF, URI + this.getId(), HttpMethod.GET));
 	}
 	
 	public Link getLinkPeloRel(String rel) {

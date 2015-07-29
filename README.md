@@ -1,9 +1,14 @@
 # Casa do Código - SOA
 Casa do Código Estoque WebService para consulta de estoque via SOA e sistema de pagamento via REST
 
-##### Consultando um Pagamento 
+##### Consultando um Pagamento com retorno JSON
 ```json
 curl -i -H "Accept: application/json" http://localhost:8080/casa-do-codigo-webservice/pagamentos/1
+```
+
+##### Consultando um Pagamento com retorno XML
+```json
+curl -i -H "Accept: application/xml" http://localhost:8080/casa-do-codigo-webservice/pagamentos/1
 ```
 
 #### Criand um pagamento a partir de uma Transação

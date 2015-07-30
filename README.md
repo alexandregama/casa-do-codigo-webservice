@@ -1,5 +1,7 @@
 # Casa do Código - SOA
-Casa do Código Estoque WebService para consulta de estoque via SOA e sistema de pagamento via REST
+Casa do Código WebService que contempla os seguintes serviços
+- Consulta de Estoque via SOAP
+- Sistema de Pagamento via REST
 
 ##### Consultando um Pagamento com retorno JSON
 ```json

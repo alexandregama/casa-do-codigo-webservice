@@ -2,8 +2,12 @@ package br.com.caelum.payfast;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.google.common.base.MoreObjects;
 
 @XmlRootElement
 public class Pagamento {
@@ -27,20 +31,16 @@ public class Pagamento {
 	Pagamento() {
 	}
 
-	public Pagamento(Integer id, BigDecimal valor) {
-		this.id = id;
+	public Pagamento(BigDecimal valor) {
 		this.valor = valor;
+		this.comStatusCriado();
 	}
 
 	public void comStatusCriado() {
-		if (this.id == null) {
-			throw new IllegalArgumentException("id do pagamento deve existir");
-		}
-
 		this.status = STATUS_CRIADO;
 		this.links.clear();
-		this.addLink(new Link(REL_CONFIRMAR, URI + this.getId(), "PUT"));
-		this.addLink(new Link(REL_CANCELAR, URI + this.getId(), "DELETE"));
+		this.addLink(new Link(REL_CONFIRMAR, URI + this.getId(), HttpMethod.PUT));
+		this.addLink(new Link(REL_CANCELAR, URI + this.getId(), HttpMethod.DELETE));
 	}
 
 	public void comStatusConfirmado() {
@@ -54,7 +54,7 @@ public class Pagamento {
 
 		this.status = STATUS_CONFIRMADO;
 		this.links.clear();
-		this.addLink(new Link(REL_SELF, URI + this.getId(), "GET"));
+		this.addLink(new Link(REL_SELF, URI + this.getId(), HttpMethod.GET));
 	}
 
 	public void comStatusCancelado() {
@@ -68,7 +68,7 @@ public class Pagamento {
 
 		this.status = STATUS_CANCELADO;
 		this.links.clear();
-		this.addLink(new Link(REL_SELF, URI + this.getId(), "GET"));
+		this.addLink(new Link(REL_SELF, URI + this.getId(), HttpMethod.GET));
 	}
 	
 	public Link getLinkPeloRel(String rel) {
@@ -100,8 +100,8 @@ public class Pagamento {
 		return id;
 	}
 
-	public ArrayList<Link> getLinks() {
-		return links;
+	public List<Link> getLinks() {
+		return Collections.unmodifiableList(links);
 	}
 
 	public void addLink(Link link) {
@@ -122,7 +122,12 @@ public class Pagamento {
 
 	@Override
 	public String toString() {
-		return "Pagamento [id=" + id + ", status=" + status + ", valor=" + valor + ", links="
-				+ links + "]";
+		return MoreObjects.toStringHelper(this)
+				.add("id", id)
+				.add("status", status)
+				.add("valor", valor)
+				.add("links", links)
+				.toString();
 	}
+	
 }

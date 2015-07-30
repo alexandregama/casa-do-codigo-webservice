@@ -3,6 +3,8 @@ Casa do Código WebService que contempla os seguintes serviços
 - Consulta de Estoque via SOAP
 - Sistema de Pagamento via REST
 
+# Sistema de Pagamento - REST
+
 ##### Consultando um Pagamento com retorno JSON
 ```json
 curl -i -H "Accept: application/json" http://localhost:8080/casa-do-codigo-webservice/pagamentos/1

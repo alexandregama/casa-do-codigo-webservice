@@ -35,4 +35,10 @@ public class EstoqueWS {
 		return estoque.buscaPorListaDeCodigo(codigos);
 	}
 	
+	//Este metodo existe somente para validarmos como o metodo é exibido no WSDL sem usar os recursos do JAX-WS
+	@WebMethod
+	public List<ItemEstoque> getQuantidade(List<String> codigos) {
+		return estoque.buscaPorListaDeCodigo(codigos);
+	}
+	
 }

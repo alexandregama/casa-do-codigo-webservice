@@ -19,4 +19,10 @@ public class CalculadoraWS implements Calculadora {
 		return valor1 * valor2;
 	}
 
+	@WebResult(name = "resultadoSubtrair", partName = "subtraindo")
+	@WebMethod(operationName = "subtrair")
+	public int subtrair(@WebParam(name = "valor1") int valor1, @WebParam(name = "valor2") int valor2) {
+		return valor1 - valor2;
+	}
+	
 }

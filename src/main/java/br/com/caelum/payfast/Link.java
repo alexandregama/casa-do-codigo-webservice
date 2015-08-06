@@ -1,12 +1,22 @@
 package br.com.caelum.payfast;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.google.common.base.MoreObjects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Link {
 
 	private String rel;
 	private String uri;
 	private HttpMethod method;
+	
+	@Deprecated //JAX-B eyes only
+	Link() {
+	}
 
 	public Link(String rel, String uri, HttpMethod method) {
 		this.rel = rel;

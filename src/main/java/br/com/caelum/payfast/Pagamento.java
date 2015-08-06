@@ -5,11 +5,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.common.base.MoreObjects;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Pagamento {
 
 	private static final String URI = "/pagamentos/";
@@ -22,7 +27,9 @@ public class Pagamento {
 	private static final String STATUS_CONFIRMADO = "CONFIRMADO";
 	private static final String STATUS_CANCELADO = "CANCELADO";
 	
+	@XmlAttribute
 	private Integer id;
+	@XmlElement(name = "estadoAtual")
 	private String status;
 	private BigDecimal valor;
 	private ArrayList<Link> links = new ArrayList<>();

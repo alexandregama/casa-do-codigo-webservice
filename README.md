@@ -58,15 +58,7 @@ $ curl -i -H "Accept: application/xml" http://localhost:8080/casa-do-codigo-webs
 ##### Criando um Pagamento a partir de uma Transação
 
 ```json
-$ curl -i -H "Content-Type: application/json" -X POST -d 
-```
-
-##### JSON de resposta da criação de um Pagamento
-```json
-{
-   "valor":"39.9",
-   "titular":"Gama"
-} 
+$ curl -i -H "Content-Type: application/json" -X POST -d {"valor":"39.9", "titular":"Gama"} http://localhost:8080/casa-do-codigo-webservice/pagamentos/
 ```
 
 ##### Formato da resposta da criação de um Pagamento

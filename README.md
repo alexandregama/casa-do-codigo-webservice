@@ -59,14 +59,17 @@ $ curl -i -H "Accept: application/xml" http://localhost:8080/casa-do-codigo-webs
 
 ```json
 $ curl -i -H "Content-Type: application/json" -X POST -d 
-'{
-   "valor":"39.9",
-   "titular":"Gama"
-}' 
-http://localhost:8080/casa-do-codigo-webservice/pagamentos
 ```
 
-Formato da resposta da criação de um Pagamento
+##### JSON de resposta da criação de um Pagamento
+```json
+{
+   "valor":"39.9",
+   "titular":"Gama"
+} 
+```
+
+##### Formato da resposta da criação de um Pagamento
 
 ```json
 {

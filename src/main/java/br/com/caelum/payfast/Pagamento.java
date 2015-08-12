@@ -40,7 +40,6 @@ public class Pagamento {
 
 	public Pagamento(BigDecimal valor) {
 		this.valor = valor;
-		this.comStatusCriado();
 	}
 
 	public void comStatusCriado() {
